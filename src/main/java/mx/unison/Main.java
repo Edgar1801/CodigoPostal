@@ -12,7 +12,7 @@ public class Main {
 
     public static void main(String[] args) {
         String archivoCSV = "codigos_postales.csv";
-        String linea = "";
+        String linea;
         String separador = ",";
 
         int urbanos = 0;
@@ -20,7 +20,6 @@ public class Main {
 
         try (BufferedReader br = new BufferedReader(new FileReader(archivoCSV))) {
             // Leer la primera línea (cabecera)
-            String cabecera = br.readLine();
 
             // Leer las siguientes líneas
             while ((linea = br.readLine()) != null) {
