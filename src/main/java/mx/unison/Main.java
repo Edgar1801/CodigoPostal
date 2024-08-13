@@ -19,13 +19,10 @@ public class Main {
         int rurales = 0;
 
         try (BufferedReader br = new BufferedReader(new FileReader(archivoCSV))) {
-            // Leer la primera línea (cabecera)
 
-            // Leer las siguientes líneas
             while ((linea = br.readLine()) != null) {
                 String[] datos = linea.split(separador);
 
-                // La columna del tipo de asentamiento está en la tercera posición (índice 2)
                 String tipoAsentamiento = datos[2];
 
                 if (tipoAsentamiento.equalsIgnoreCase("Urbano")) {
