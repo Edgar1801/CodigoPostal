@@ -17,7 +17,6 @@ public class EncontrarCodigo {
         String archivoCSV = "codigos_postales.csv";
         Map<String, List<String>> codigosPostalesMap = new HashMap<>();
 
-        // Leer el archivo CSV y cargar los datos en el mapa
         try (BufferedReader br = new BufferedReader(new FileReader(archivoCSV))) {
             String linea;
             while ((linea = br.readLine()) != null) {
@@ -25,7 +24,6 @@ public class EncontrarCodigo {
                 String codigoPostal = datos[0].trim();
                 String asentamiento = datos[1].trim();
 
-                // Si el código postal ya existe en el mapa, añade el asentamiento a la lista
                 codigosPostalesMap.computeIfAbsent(codigoPostal, k -> new ArrayList<>()).add(asentamiento);
             }
         } catch (IOException e) {
@@ -33,7 +31,6 @@ public class EncontrarCodigo {
             return;
         }
 
-        // Buscar y mostrar los asentamientos asociados a los códigos postales proporcionados
         for (String codigoPostal : args) {
             List<String> asentamientos = codigosPostalesMap.get(codigoPostal);
             if (asentamientos != null) {
